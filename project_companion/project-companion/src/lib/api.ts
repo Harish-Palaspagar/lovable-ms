@@ -32,6 +32,8 @@ export const PREVIEW_URL_KEY = "preview_url";
 export const OPEN_TABS_KEY = "open_tabs";
 export const ACTIVE_TAB_KEY = "active_tab";
 
+export const getPreviewUrlKey = (projectId: string) => `${PREVIEW_URL_KEY}:${projectId}`;
+
 // API response format for files endpoint
 interface FilesApiResponse {
   files: { path: string }[];

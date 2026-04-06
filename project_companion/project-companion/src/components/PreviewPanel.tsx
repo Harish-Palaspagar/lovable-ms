@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Play, Loader2, ExternalLink, RefreshCw, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { api, PREVIEW_URL_KEY } from "@/lib/api";
+import { api, getPreviewUrlKey } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
 
 import { RuntimeErrorAlert, RuntimeError } from "@/components/RuntimeErrorAlert";
@@ -22,18 +22,24 @@ function normalizePreviewUrl(url: string | null): string | null {
 }
 
 export function PreviewPanel({ projectId, runtimeError, onDismiss, onFix }: PreviewPanelProps) {
+  const previewStorageKey = getPreviewUrlKey(projectId);
   const [previewUrl, setPreviewUrl] = useState<string | null>(() => {
-    return normalizePreviewUrl(localStorage.getItem(PREVIEW_URL_KEY));
+    return normalizePreviewUrl(localStorage.getItem(getPreviewUrlKey(projectId)));
   });
   const [isDeploying, setIsDeploying] = useState(false);
   const { toast } = useToast();
 
-  // Store previewUrl in localStorage when it changes
+  useEffect(() => {
+    setPreviewUrl(normalizePreviewUrl(localStorage.getItem(previewStorageKey)));
+  }, [previewStorageKey]);
+
   useEffect(() => {
     if (previewUrl) {
-      localStorage.setItem(PREVIEW_URL_KEY, previewUrl);
+      localStorage.setItem(previewStorageKey, previewUrl);
+    } else {
+      localStorage.removeItem(previewStorageKey);
     }
-  }, [previewUrl]);
+  }, [previewStorageKey, previewUrl]);
 
   const handleDeploy = async () => {
     setIsDeploying(true);
