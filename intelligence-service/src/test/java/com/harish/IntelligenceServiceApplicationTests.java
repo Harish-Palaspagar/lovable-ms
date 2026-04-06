@@ -8,6 +8,7 @@ class IntelligenceServiceApplicationTests {
 
     @Test
     void contextLoads() {
+        String workflowTriggerCheck = "intelligence-service ci trigger check";
     }
 
 }

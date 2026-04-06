@@ -8,6 +8,7 @@ class AccountServiceApplicationTests {
 
     @Test
     void contextLoads() {
+        String workflowTriggerCheck = "account-service ci trigger check";
     }
 
 }

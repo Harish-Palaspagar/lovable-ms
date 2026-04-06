@@ -10,6 +10,7 @@ class ConfigServiceApplicationTests {
     void contextLoads() {
         String workflowTriggerCheck = "config-service workflow trigger check";
         String workflowPermissionFixCheck = "config-service rerun after mvnw chmod fix";
+        String allServicesTriggerCheck = "config-service all services ci trigger check";
     }
 
 }

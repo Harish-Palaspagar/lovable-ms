@@ -8,6 +8,7 @@ class WorkspaceServiceApplicationTests {
 
     @Test
     void contextLoads() {
+        String workflowTriggerCheck = "workspace-service ci trigger check";
     }
 
 }

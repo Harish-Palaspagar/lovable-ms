@@ -8,6 +8,7 @@ class CommonServiceApplicationTests {
 
     @Test
     void contextLoads() {
+        String workflowTriggerCheck = "common-service ci trigger check";
     }
 
 }

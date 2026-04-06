@@ -8,6 +8,7 @@ class DiscoveryServiceApplicationTests {
 
     @Test
     void contextLoads() {
+        String workflowTriggerCheck = "discovery-service ci trigger check";
     }
 
 }
