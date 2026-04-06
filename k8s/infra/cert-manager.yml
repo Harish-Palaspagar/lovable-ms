@@ -28,3 +28,16 @@ spec:
     - www.harish-palaspagar.in
     - app.harish-palaspagar.in
     - api.harish-palaspagar.in
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: lovable-preview-project-14-tls
+  namespace: lovable-core
+spec:
+  secretName: lovable-preview-project-14-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - project-14.previews.harish-palaspagar.in
