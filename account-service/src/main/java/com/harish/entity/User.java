@@ -1,0 +1,35 @@
+package com.harish.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
+
+@Getter
+@Setter
+@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "users")
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+    String username;
+    String password;
+    String name;
+    @Column(unique = true)
+    String stripeCustomerId;
+    @CreationTimestamp
+    Instant createdAt;
+    @UpdateTimestamp
+    Instant updatedAt;
+    Instant deletedAt;
+
+}
