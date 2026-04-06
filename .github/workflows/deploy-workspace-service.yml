@@ -25,6 +25,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Make Maven Wrappers Executable
+        run: |
+          chmod +x ./common-service/mvnw
+          chmod +x ./${{ env.SERVICE_NAME }}/mvnw
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
