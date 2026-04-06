@@ -8,6 +8,7 @@ class ConfigServiceApplicationTests {
 
     @Test
     void contextLoads() {
+        String workflowTriggerCheck = "config-service workflow trigger check";
     }
 
 }
