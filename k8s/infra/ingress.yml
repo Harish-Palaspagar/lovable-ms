@@ -4,12 +4,41 @@ metadata:
   name: lovable-main-ingress
   namespace: lovable-core
   annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    acme.cert-manager.io/http01-edit-in-place: "true"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
 spec:
   ingressClassName: "nginx"
+  tls:
+    - hosts:
+        - "harish-palaspagar.in"
+        - "www.harish-palaspagar.in"
+        - "app.harish-palaspagar.in"
+        - "api.harish-palaspagar.in"
+      secretName: lovable-main-tls
   rules:
     # 1. Main Website Route (The Frontend!)
+    - host: "harish-palaspagar.in"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lovable-frontend
+                port:
+                  number: 80
+    - host: "www.harish-palaspagar.in"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lovable-frontend
+                port:
+                  number: 80
     - host: "app.harish-palaspagar.in"
       http:
         paths:

@@ -42,8 +42,8 @@ public class KubernetesDeploymentServiceImpl implements DeploymentService {
 
         String domain = "project-" + projectId + "." + baseDomain;
         String formattedUrl = proxyPort.equals("80")
-                ? "http://" + domain
-                : "http://" + domain + ":" + proxyPort;
+                ? "https://" + domain
+                : "https://" + domain + ":" + proxyPort;
         Pod existingPod = findActivePod(projectId);
         if (existingPod != null) {
             log.info("Found existing pod {} for project {}. Resuming...", existingPod.getMetadata().getName(), projectId);

@@ -17,8 +17,9 @@ public class CorsConfig {
 
         CorsConfiguration corsConfig = new CorsConfiguration();
         corsConfig.setAllowedOrigins(Arrays.asList(
-                "http://harish.in",
-                "http://www.harish.in",
+                "https://harish-palaspagar.in",
+                "https://www.harish-palaspagar.in",
+                "https://app.harish-palaspagar.in",
                 "http://localhost:5173"
         ));
         corsConfig.setMaxAge(3600L);
