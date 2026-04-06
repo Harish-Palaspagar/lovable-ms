@@ -73,6 +73,9 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>3.4.4</version>
                 <configuration>
+                    <container>
+                        <mainClass>com.harish.ConfigServiceApplication</mainClass>
+                    </container>
                     <to>
                         <image>docker.io/harishpalaspagar/lovable-${project.name}:${project.version}</image>
                         <tags>
